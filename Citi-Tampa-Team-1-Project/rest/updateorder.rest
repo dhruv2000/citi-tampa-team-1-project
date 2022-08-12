@@ -1,10 +1,12 @@
-PUT http://localhost:8080/api/compactdiscs
+PUT http://localhost:8080/api/orders
 Content-type: application/json
 
 {
-    "id" : 21,
-    "title" : "Bohemian Raphsody",
-    "price" : "13.99",
-    "artist" : "Queen",
-    "tracks" : "1"
+    "order_type" : "sell",
+    "price" : 44.44,
+    "time_of_day" : "12:09",
+    "asset" : "Stock",
+    "status_code" : 3,
+    "num_shares" : 21,
+    "ticker" : "ABBA",
 }

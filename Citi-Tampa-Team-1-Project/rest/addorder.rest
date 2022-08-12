@@ -1,9 +1,12 @@
-POST http://localhost:8080/api/compactdiscs
+POST http://localhost:8080/api/orders
 Content-type: application/json
 
 {
-    "title" : "Sweet Caroline",
-    "price" : "13.99",
-    "artist" : "Neil Diamond",
-    "tracks" : "1"
+    "order_type" : "buy",
+    "price" : 27.34,
+    "time_of_day" : "12:03",
+    "asset" : "Stock",
+    "status_code" : 3,
+    "num_shares" : 21,
+    "ticker" : "ABBA"
 }

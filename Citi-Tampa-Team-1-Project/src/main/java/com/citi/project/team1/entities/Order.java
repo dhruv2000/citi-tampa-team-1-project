@@ -25,22 +25,21 @@ public class Order implements Serializable {
     // add attributes for all the remaining properties
     @Column(name="order_type") private String order_type;
     @Column(name="price") private Double price;
-    @Column(name="time_of_day") private String timeOfDay;
+    @Column(name="time_of_day") private String time_of_day;
     @Column(name="asset") private String asset;
     @Column(name="status_code") private int status_code;
-    @Column(name="num_shares") private int numShares;
+    @Column(name="num_shares") private int num_shares;
     @Column(name="ticker") private String ticker;
 
     public Order(){}
 
-    public Order(int id, String order_type, Double price, String timeOfDay, String asset, int status_code, int numShares, String ticker) {
-        this.id = id;
+    public Order(String order_type, Double price, String time_of_day, String asset, int status_code, int num_shares, String ticker) {
         this.order_type = order_type;
         this.price = price;
-        this.timeOfDay = timeOfDay;
+        this.time_of_day = time_of_day;
         this.asset = asset;
         this.status_code = status_code;
-        this.numShares = numShares;
+        this.num_shares = num_shares;
         this.ticker = ticker;
     }
 
@@ -52,11 +51,11 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public String getOrderType() {
+    public String getOrder_type() {
         return order_type;
     }
 
-    public void setOrderType(String order_type) {
+    public void setOrder_type(String order_type) {
         this.order_type = order_type;
     }
 
@@ -68,12 +67,12 @@ public class Order implements Serializable {
         this.price = price;
     }
 
-    public String getTimeOfDay() {
-        return timeOfDay;
+    public String getTime_of_day() {
+        return time_of_day;
     }
 
-    public void setTimeOfDay(String timeOfDay) {
-        this.timeOfDay = timeOfDay;
+    public void setTime_of_day(String time_of_day) {
+        this.time_of_day = time_of_day;
     }
 
     public String getAsset() {
@@ -92,12 +91,12 @@ public class Order implements Serializable {
         this.status_code = status_code;
     }
 
-    public int getNumShares() {
-        return numShares;
+    public int getNum_shares() {
+        return num_shares;
     }
 
-    public void setNumShares(int numShares) {
-        this.numShares = numShares;
+    public void setNum_shares(int num_shares) {
+        this.num_shares = num_shares;
     }
 
     public String getTicker() {
