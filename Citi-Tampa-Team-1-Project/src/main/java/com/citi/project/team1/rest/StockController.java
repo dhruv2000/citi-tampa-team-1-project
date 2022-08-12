@@ -1,12 +1,12 @@
 package com.citi.project.team1.rest;
 
-import com.citi.project.team1.entities.Order;
+import com.citi.project.team1.entities.Stock;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import services.OrderService;
+import services.StockService;
 
 @RestController
 @RequestMapping("/api/stocks")
@@ -25,9 +25,9 @@ public class StockController {
         return service.getAllStocks();
     }
 
-    @GetMapping("/{id}")
-    public Stock getStockById(@PathVariable("id") int id) {
-        return service.getStockByID(id);
+    @GetMapping("/{ticker}")
+    public Stock getStockBySym(@PathVariable("ticker") String sym) {
+        return service.findBySymbol(sym);
     }
 
     //    @RequestMapping (method = RequestMethod.POST)
@@ -46,9 +46,9 @@ public class StockController {
         service.deleteStock(stock);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteStockById(@PathVariable("id") int id) {
-        service.deleteStockbyID(id);
+    @DeleteMapping("/{ticker}")
+    public void deleteStockBySym(@PathVariable("ticker") String sym) {
+        service.deleteBySym(sym);
     }
 
 

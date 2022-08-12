@@ -22,7 +22,7 @@ public class OrderController {
     @GetMapping
     public Iterable<Order> findAll() {
         logger.info("managed to call a Get request for findAll");
-        return service.getALLOrders();
+        return service.getAllOrders();
     }
 
     @GetMapping("/{id}")

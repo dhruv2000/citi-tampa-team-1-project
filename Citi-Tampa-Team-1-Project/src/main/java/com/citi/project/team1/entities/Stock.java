@@ -1,18 +1,14 @@
 package com.citi.project.team1.entities;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.*;
 @Entity
 @Table(name = "stocks")
 
 
-public class Stocks implements Serializable {
+public class Stock implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +27,9 @@ public class Stocks implements Serializable {
     @Column(name = "last_price")
     private Double last_price;
 
-    public Stocks() {}
+    public Stock() {}
 
-    public Stocks(int id, String symbol, String currency, String market_time, int volume, Double last_price) {
+    public Stock(int id, String symbol, String currency, String market_time, int volume, Double last_price) {
         this.id = id;
         this.symbol = symbol;
         this.currency = currency;
