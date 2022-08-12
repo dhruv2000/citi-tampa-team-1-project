@@ -1,18 +1,15 @@
-package services;
+package com.citi.project.team1.services;
 
-import com.citi.project.team1.entities.Order;
 import com.citi.project.team1.entities.Stock;
-import com.citi.project.team1.repos.OrderRepository;
 import com.citi.project.team1.repos.StockRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.management.Query;
-import java.util.Optional;
-
+@Service
 public class StockServiceImplementation implements StockService{
 
     private static final Logger logger = LogManager.getLogger(OrderServiceImplementation.class);

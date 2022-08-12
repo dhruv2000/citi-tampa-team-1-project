@@ -1,0 +1,2 @@
+GET http://localhost:8080/api/compactdiscs/9
+Content-type: application/json

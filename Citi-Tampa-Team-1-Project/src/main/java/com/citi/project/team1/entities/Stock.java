@@ -16,8 +16,8 @@ public class Stock implements Serializable {
     private int id;
 
     // add attributes for all the remaining properties
-    @Column(name = "symbol")
-    private String symbol;
+    @Column(name = "ticker")
+    private String ticker;
     @Column(name = "currency")
     private String currency;
     @Column(name = "market_time")
@@ -31,7 +31,7 @@ public class Stock implements Serializable {
 
     public Stock(int id, String symbol, String currency, String market_time, int volume, Double last_price) {
         this.id = id;
-        this.symbol = symbol;
+        this.ticker = symbol;
         this.currency = currency;
         this.market_time = market_time;
         this.volume = volume;
@@ -46,12 +46,12 @@ public class Stock implements Serializable {
         this.id = id;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public String getTicker() {
+        return ticker;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setTicker(String symbol) {
+        this.ticker = symbol;
     }
 
     public String getCurrency() {

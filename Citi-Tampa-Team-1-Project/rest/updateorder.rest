@@ -1,0 +1,10 @@
+PUT http://localhost:8080/api/compactdiscs
+Content-type: application/json
+
+{
+    "id" : 21,
+    "title" : "Bohemian Raphsody",
+    "price" : "13.99",
+    "artist" : "Queen",
+    "tracks" : "1"
+}

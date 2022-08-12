@@ -10,7 +10,7 @@ import java.util.List;
 import javax.persistence.*;
 
 
-@Entity @Table(name="order")
+@Entity @Table(name="orders")
 
 
 
@@ -23,22 +23,25 @@ public class Order implements Serializable {
     private int id;
 
     // add attributes for all the remaining properties
-    @Column(name="type") private String type;
+    @Column(name="order_type") private String order_type;
     @Column(name="price") private Double price;
-    @Column(name="time") private String time;
+    @Column(name="time_of_day") private String timeOfDay;
     @Column(name="asset") private String asset;
     @Column(name="status_code") private int status_code;
-    @Column(name="numshares") private int numshares;
+    @Column(name="num_shares") private int numShares;
+    @Column(name="ticker") private String ticker;
 
-    public Order() {}
+    public Order(){}
 
-    public Order(String type, Double price, String time, String asset, int status_code, int numshares) {
-        this.type = type;
+    public Order(int id, String order_type, Double price, String timeOfDay, String asset, int status_code, int numShares, String ticker) {
+        this.id = id;
+        this.order_type = order_type;
         this.price = price;
-        this.time = time;
+        this.timeOfDay = timeOfDay;
         this.asset = asset;
         this.status_code = status_code;
-        this.numshares = numshares;
+        this.numShares = numShares;
+        this.ticker = ticker;
     }
 
     public int getId() {
@@ -49,12 +52,12 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public String getType() {
-        return type;
+    public String getOrderType() {
+        return order_type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setOrderType(String order_type) {
+        this.order_type = order_type;
     }
 
     public Double getPrice() {
@@ -65,12 +68,12 @@ public class Order implements Serializable {
         this.price = price;
     }
 
-    public String getTime() {
-        return time;
+    public String getTimeOfDay() {
+        return timeOfDay;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setTimeOfDay(String timeOfDay) {
+        this.timeOfDay = timeOfDay;
     }
 
     public String getAsset() {
@@ -89,15 +92,19 @@ public class Order implements Serializable {
         this.status_code = status_code;
     }
 
-    public int getNumshares() {
-        return numshares;
+    public int getNumShares() {
+        return numShares;
     }
 
-    public void setNumshares(int numshares) {
-        this.numshares = numshares;
+    public void setNumShares(int numShares) {
+        this.numShares = numShares;
     }
 
+    public String getTicker() {
+        return ticker;
+    }
 
-
-
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
 }

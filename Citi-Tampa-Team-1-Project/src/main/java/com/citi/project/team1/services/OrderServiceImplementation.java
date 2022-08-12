@@ -1,16 +1,17 @@
-package services;
+package com.citi.project.team1.services;
 
 import com.citi.project.team1.entities.Order;
 import com.citi.project.team1.repos.OrderRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
+@Service
 public class OrderServiceImplementation implements OrderService {
 
     private static final Logger logger = LogManager.getLogger(OrderServiceImplementation.class);

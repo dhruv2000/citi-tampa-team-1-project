@@ -1,4 +1,4 @@
-package services;
+package com.citi.project.team1.services;
 
 import com.citi.project.team1.entities.Order;
 import com.citi.project.team1.entities.Stock;
