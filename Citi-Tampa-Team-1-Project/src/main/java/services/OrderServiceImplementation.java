@@ -1,6 +1,6 @@
-package service;
+package services;
 
-import com.citi.project.team1.Entities.Order;
+import com.citi.project.team1.entities.Order;
 
 public class OrderServiceImplementation implements OrderService {
 
