@@ -1,2 +1,13 @@
 DELETE http://localhost:8080/api/compactdiscs/21
 Content-type: application/json
+
+{
+    "ticker" : "AAPL",
+    "price" : "171.28",
+    "time_of_day" : "14:04 8-12-2022",
+    "asset" : "stock",
+    "status_code": "1",
+    "num_shares": "100",
+    "order_type": "buy",
+}
+
