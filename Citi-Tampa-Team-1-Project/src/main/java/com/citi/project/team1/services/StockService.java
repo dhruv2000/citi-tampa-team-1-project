@@ -8,8 +8,6 @@ public interface StockService {
 
     Iterable<Stock> getAllStocks();
 
-
-
     Stock addNewStock(Stock stock);
 
    void deleteBySym(String sym);

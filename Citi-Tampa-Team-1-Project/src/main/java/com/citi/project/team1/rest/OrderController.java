@@ -1,6 +1,8 @@
 package com.citi.project.team1.rest;
 
 import com.citi.project.team1.entities.Order;
+import com.citi.project.team1.entities.Stock;
+import com.citi.project.team1.entities.StockData;
 import io.swagger.annotations.ApiOperation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +32,11 @@ public class OrderController {
         return service.getOrderByID(id);
     }
 
-    //    @RequestMapping (method = RequestMethod.POST)
+    @GetMapping("/updateOrderStatuses")
+    public StockData updateOrderStatuses() {
+        return service.updateOrderStatuses();
+    }
+
     @PostMapping()
     public void addOrder(@RequestBody Order order){
         service.addNewOrder(order);
