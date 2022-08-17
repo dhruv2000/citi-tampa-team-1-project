@@ -8,14 +8,14 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'chmod a+x mvnw'
-        sh './mvnw clean test'
+        sh 'chmod a+x ./Citi-Tampa-Team-1-Project/mvnw'
+        sh './Citi-Tampa-Team-1-Project/mvnw clean test'
       }
     }
 
     stage('Build') {
       steps {
-        sh './mvnw package'
+        sh './Citi-Tampa-Team-1-Project/mvnw package'
       }
     }
 
