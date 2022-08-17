@@ -1,0 +1,16 @@
+jenkins: http://openshift21.conygre.com:8080/
+username: admin
+password: c0nygre
+
+OpenShift: https://openshift21.conygre.com:8443/console/
+username: admin
+password: admin
+
+
+Our Repo: https://github.com/dhruv2000/citi-tampa-team-1-project.git
+
+
+Nick Repo: https://github.com/nicktodd/dockerlabs/blob/master/docs/modulexx_using_jenkins.md
+
+
+Deployed URL: http://tampa-team-project-1-tampa-team-project-1.openshift21.conygre.com/
