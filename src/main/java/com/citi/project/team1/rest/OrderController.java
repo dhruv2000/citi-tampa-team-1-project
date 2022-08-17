@@ -26,6 +26,7 @@ public class OrderController {
         logger.info("managed to call a Get request for findAll");
         return service.getAllOrders();
     }
+    
 
     @GetMapping("/{id}")
     public Order getOrderById(@PathVariable("id") int id) {
