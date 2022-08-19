@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Citi-Tampa-Team-1-Project" />
+        <module name="citi-tampa-team-1-project" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Citi-Tampa-Team-1-Project" options="-parameters" />
+      <module name="citi-tampa-team-1-project" options="-parameters" />
     </option>
   </component>
 </project>

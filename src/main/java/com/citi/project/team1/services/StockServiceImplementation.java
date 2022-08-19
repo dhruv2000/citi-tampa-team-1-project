@@ -32,16 +32,16 @@ public class StockServiceImplementation implements StockService{
     }
 
     @Override
-    public void deleteBySym(String sym) {
-        Stock toBeDeleted = dao.findByTicker(sym);
+    public void deleteByTicker(String ticker) {
+        Stock toBeDeleted = dao.findByTicker(ticker);
         deleteStock(toBeDeleted);
 
     }
 
     @Override
-    public Stock findBySymbol(String sym) {
+    public Stock findByTicker(String ticker) {
 
-       return dao.findByTicker(sym);
+       return dao.findByTicker(ticker);
 
     }
 

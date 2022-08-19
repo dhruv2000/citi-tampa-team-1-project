@@ -26,8 +26,8 @@ public class StockController {
     }
 
     @GetMapping("/{ticker}")
-    public Stock getStockBySym(@PathVariable("ticker") String sym) {
-        return service.findBySymbol(sym);
+    public Stock getStockByTicker(@PathVariable("ticker") String ticker) {
+        return service.findByTicker(ticker);
     }
 
     //    @RequestMapping (method = RequestMethod.POST)
@@ -47,8 +47,8 @@ public class StockController {
     }
 
     @DeleteMapping("/{ticker}")
-    public void deleteStockBySym(@PathVariable("ticker") String sym) {
-        service.deleteBySym(sym);
+    public void deleteStockByTicker(@PathVariable("ticker") String ticker) {
+        service.deleteByTicker(ticker);
     }
 
 

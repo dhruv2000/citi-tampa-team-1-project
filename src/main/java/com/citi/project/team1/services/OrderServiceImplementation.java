@@ -3,6 +3,7 @@ package com.citi.project.team1.services;
 import com.citi.project.team1.entities.Order;
 import com.citi.project.team1.entities.StockData;
 import com.citi.project.team1.repos.OrderRepository;
+import io.swagger.models.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
+import springfox.documentation.spring.web.json.Json;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -63,11 +66,23 @@ public class OrderServiceImplementation implements OrderService {
         dao.delete(order);
 
     }
+
+    // TODO: Need to implement Update Order By ID
     @Override
-    public Order updateOrder(Order order){
-        return dao.save(order);
+    public ResponseEntity<Order> updateOrder(Order order){
+        ResponseEntity<Order> responseEntitySuccess = new ResponseEntity<>(order, HttpStatus.OK);
+        ResponseEntity<Order> responseEntityFail = new ResponseEntity<>(HttpStatus.OK);
+        Optional<Order> orderToUpdate = dao.findById(order.getId());
+        if(orderToUpdate.isPresent()){
+            dao.save(order);
+            return responseEntitySuccess;
+        }else{
+            return responseEntityFail;
+        }
     }
 
+
+//    TODO: Finish this function
     @Override
     public StockData updateOrderStatuses() {
         System.out.println("Made it here");
@@ -92,5 +107,10 @@ public class OrderServiceImplementation implements OrderService {
 //        assert response.getStatusCode() == HttpStatus.OK;
 //        return response.getBody();
     return response;
+    }
+
+    @Override
+    public List<Order> findByTicker(String ticker) {
+        return dao.findByTicker(ticker);
     }
 }

@@ -10,9 +10,9 @@ public interface StockService {
 
     Stock addNewStock(Stock stock);
 
-   void deleteBySym(String sym);
+   void deleteByTicker(String ticker);
 
-    Stock findBySymbol(String sym);
+    Stock findByTicker(String ticker);
 
     void deleteStock(Stock stock);
 

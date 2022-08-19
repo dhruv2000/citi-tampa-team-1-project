@@ -4,7 +4,7 @@ Content-type: application/json
 {
     "order_type" : "buy",
     "price" : 27.34,
-    "time_of_day" : "12:03",
+    "time_of_day" : 2022-08-12 14:02:29",
     "asset" : "Stock",
     "status_code" : 3,
     "num_shares" : 21,
