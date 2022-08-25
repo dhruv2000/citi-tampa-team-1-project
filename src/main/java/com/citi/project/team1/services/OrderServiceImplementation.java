@@ -16,6 +16,7 @@ import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 import springfox.documentation.spring.web.json.Json;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -35,6 +36,23 @@ public class OrderServiceImplementation implements OrderService {
         logger.info("getting the catalog");
 
         return dao.findAll();
+    }
+    @Transactional(propagation = Propagation.REQUIRED)
+
+    @Override
+    public Iterable<Order> getAllProcessedOrders() {
+            logger.info("getting the catalog");
+        List<Order> allOrders = dao.findAll();
+        List<Order> processedOrders = new ArrayList<Order>();
+        for (Order order :
+                allOrders) {
+            if (order.getStatus_code() == 2) {
+                processedOrders.add(order);
+            }
+            }
+
+            return processedOrders;
+
     }
 
     @Override

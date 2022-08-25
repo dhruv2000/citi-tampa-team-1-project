@@ -29,6 +29,12 @@ public class OrderController {
         return service.getAllOrders();
     }
 
+    @GetMapping("/processed")
+    public Iterable<Order> getAllProcessedOrders() {
+        logger.info("managed to call a Get request for getAllProcessedOrders");
+        return service.getAllProcessedOrders();
+    }
+
     @GetMapping("/findByTicker/{ticker}")
     public List<Order> findByTicker(@PathVariable("ticker") String ticker) {
         logger.info("managed to call a Get request for findByTicker");
