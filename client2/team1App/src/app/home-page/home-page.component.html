@@ -1,0 +1,36 @@
+<div class="welcome">
+    <h2>Welcome to your Portflio Management System</h2>
+    <h3>The current value of your porfolio is: ${{totalValue}}</h3>
+
+</div>
+
+<div class="processedOrders">
+    <h2>Your Processed Orders</h2>
+</div>
+<table id="myTable" class="styled-table">
+   <thead>
+      <tr>
+         <th>Id</th>
+         <th>Ticker</th>
+         <th>Asset</th>
+         <th>Price</th>
+         <th>Number of Shares</th>
+         <th>Order Type</th>
+         <th>Time Submitted</th>
+
+      </tr>
+   </thead>
+   <tbody>
+        <tr *ngFor="let order of processedOrders | async">
+            <td>{{order.id}}</td>
+            <td>{{order.ticker}}</td>
+            <td>{{order.asset}}</td>
+            <td>${{order.price}}</td>
+            <td>{{order.num_shares}}</td>
+            <td>{{order.order_type}}</td>
+            <td>{{order.time_of_day}}</td>
+        </tr>
+    </tbody>
+    
+
+</table> 

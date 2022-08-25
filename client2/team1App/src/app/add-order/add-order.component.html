@@ -1,43 +1,35 @@
-<p>add-order works!</p>
-
-<div class="order-item-container">
-    <div *ngFor="let order of orders | async">
-        <div>Ticker: {{ order.ticker }}</div>
-    </div>
-</div>
 
 <div class="form-style-5">
-    <form>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
     <fieldset>
-    <legend><span class="number">1</span> Candidate Info</legend>
-    <input type="text" name="field1" placeholder="Your Name *">
-    <input type="email" name="field2" placeholder="Your Email *">
-    <textarea name="field3" placeholder="About yourself"></textarea>
-    <label for="job">Interests:</label>
-    <select id="job" name="field4">
-    <optgroup label="Indoors">
-      <option value="fishkeeping">Fishkeeping</option>
-      <option value="reading">Reading</option>
-      <option value="boxing">Boxing</option>
-      <option value="debate">Debate</option>
-      <option value="gaming">Gaming</option>
-      <option value="snooker">Snooker</option>
-      <option value="other_indoor">Other</option>
-    </optgroup>
-    <optgroup label="Outdoors">
-      <option value="football">Football</option>
-      <option value="swimming">Swimming</option>
-      <option value="fishing">Fishing</option>
-      <option value="climbing">Climbing</option>
-      <option value="cycling">Cycling</option>
-      <option value="other_outdoor">Other</option>
-    </optgroup>
-    </select>      
+    <legend><span class="number">1</span> Place an Order</legend>
+
+    <label for="ticker">Ticker:</label>
+    <input id="ticker" type="text" name="ticker" formControlName="ticker" placeholder="Ticker Symbol">
+    
+    <label for="asset">Asset Type:</label>
+    <select id="asset" name="asset" formControlName="asset">
+      <optgroup label="asset" >
+        <option value="stock">Stock</option>
+        <option value="option">Option</option>
+      </optgroup>
+    </select>
+
+    <label for="order_type">Order Type:</label>
+    <select id="order_type" name="order_type" formControlName="order_type">
+      <optgroup label="order_type" >
+        <option value="buy">Buy</option>
+        <option value="sell">Sell</option>
+      </optgroup>
+    </select>
+
+    <label for="num_shares">Number of Shares:</label>
+    <input id="num_shares" type="text" name="num_shares" formControlName="num_shares" placeholder="Number of Shares">
+    
+    <label for="price">Price:</label>
+    <input id="price" type="text" name="price" formControlName="price" placeholder="Price">
+
     </fieldset>
-    <fieldset>
-    <legend><span class="number">2</span> Additional Info</legend>
-    <textarea name="field3" placeholder="About Your School"></textarea>
-    </fieldset>
-    <input type="submit" value="Apply" />
+    <input type="submit" value="Submit Order" />
     </form>
     </div>

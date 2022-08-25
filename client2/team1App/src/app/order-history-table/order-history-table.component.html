@@ -1,0 +1,8 @@
+<p>order-history-table works!</p>
+<div class="order-item-container">
+    <div *ngFor="let order of orders | async">
+        <div>Ticker: {{ order.ticker }}</div>
+    </div>
+</div>
+
+

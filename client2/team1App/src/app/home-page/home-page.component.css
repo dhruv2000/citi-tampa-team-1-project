@@ -1,13 +1,41 @@
+.processedOrders{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.welcome{
+    text-align: left;
+    font-size: 2em;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+div.centered {
+    color: white;
+    font-size: 6em;
+    font-weight: 700;
+    opacity: 70%;
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
 
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 01.5em;
+    font-size: 1.5em;
     font-family: sans-serif;
     min-width: 1200px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     text-align: center;
-
 }
 
 .styled-table thead tr {

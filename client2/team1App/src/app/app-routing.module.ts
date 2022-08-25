@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrderHistoryComponent } from './order-history/order-history.component';
 import { AddOrderComponent } from './add-order/add-order.component';
-import { EditOrderComponent } from './edit-order/edit-order.component';
-import { HomeComponent } from './home/home.component';
+import { EditOrdersComponent } from './edit-orders/edit-orders.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { OrderHistoryTableComponent } from './order-history-table/order-history-table.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomePageComponent },
   { path: 'addorder', component: AddOrderComponent },
-  { path: 'editorders', component: EditOrderComponent },
-  { path: 'viewhistory', component: OrderHistoryComponent }
+  { path: 'editorders', component: EditOrdersComponent },
+  { path: 'viewhistory', component: OrderHistoryTableComponent },
 ];
 
 @NgModule({

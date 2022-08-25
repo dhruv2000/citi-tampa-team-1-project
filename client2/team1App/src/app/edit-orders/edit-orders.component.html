@@ -1,8 +1,11 @@
+<p>edit-orders works!</p>
+
+
 
 <div class="container">
 
     <h2>Orders</h2>
-    <table class="styled-table">
+    <table id="myTable" class="styled-table">
        <thead>
           <tr>
              <th>Id</th>
@@ -12,6 +15,7 @@
              <th>Number of Shares</th>
              <th>Order Type</th>
              <th>Time Submitted</th>
+             <th>Delete Order</th>
 
           </tr>
        </thead>
@@ -24,6 +28,7 @@
                 <td>{{order.num_shares}}</td>
                 <td>{{order.order_type}}</td>
                 <td>{{order.time_of_day}}</td>
+                <td><input type="button" value="Remove" (click)="remove(order.id)"></td> 
                 
             </tr>
         </tbody>

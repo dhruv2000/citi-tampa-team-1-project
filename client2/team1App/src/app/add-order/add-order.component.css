@@ -1,17 +1,18 @@
 .order-item-container {
-    width: 100%
+    width: 200%
 }
 
 .order-item-container > * {
     width: 30%;
-    display: inline-block;
-    margin: 10px;
+    display: grid;
+	justify-content: center;
+    margin: 1000px;
 }
 
 .form-style-5{
-	max-width: 500px;
+	max-width: 2000px;
 	padding: 10px 20px;
-	background: #f4f7f8;
+	background: #0fcf08;
 	margin: 10px auto;
 	padding: 20px;
 	background: #f4f7f8;
@@ -22,10 +23,13 @@
 	border: none;
 }
 .form-style-5 legend {
-	font-size: 1.4em;
+	font-weight: bold;
+	font-size: 5em;
 	margin-bottom: 10px;
 }
 .form-style-5 label {
+	/* padding-left:26px;
+    width:125px; */
 	display: block;
 	margin-bottom: 8px;
 }
@@ -42,7 +46,7 @@
 	font-family: Georgia, "Times New Roman", Times, serif;
 	background: rgba(255,255,255,.1);
 	border: none;
-	border-radius: 4px;
+	border-radius: 8px;
 	font-size: 15px;
 	margin: 0;
 	outline: 0;
@@ -67,7 +71,7 @@
 .form-style-5 input[type="url"]:focus,
 .form-style-5 textarea:focus,
 .form-style-5 select:focus{
-	background: #d2d9dd;
+	background: #dadada;
 }
 .form-style-5 select{
 	-webkit-appearance: menulist-button;
@@ -79,7 +83,8 @@
 	height: 30px;
 	width: 30px;
 	display: inline-block;
-	font-size: 0.8em;
+	font-size: 5em;
+	font-weight: bold;
 	margin-right: 4px;
 	line-height: 30px;
 	text-align: center;
@@ -93,16 +98,18 @@
 	position: relative;
 	display: block;
 	padding: 19px 39px 18px 39px;
-	color: #FFF;
+	color: rgb(255, 255, 255);
 	margin: 0 auto;
 	background: #1976d2;
 	font-size: 18px;
 	text-align: center;
 	font-style: normal;
 	width: 100%;
-	border: 1px solid #1976d2;
+	border: px solid #1976d2;
+	border-radius: 12px;
 	border-width: 1px 1px 3px;
 	margin-bottom: 10px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .form-style-5 input[type="submit"]:hover,
 .form-style-5 input[type="button"]:hover
