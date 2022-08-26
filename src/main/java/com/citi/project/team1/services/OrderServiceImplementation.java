@@ -112,39 +112,39 @@ public class OrderServiceImplementation implements OrderService {
         List<Order> allOrders = dao.findAll();
 
 
-        for(Order order: allOrders){
-            String ticker = order.getTicker();
-            String getTickerDataURL
-                    = "https://3p7zu95yg3.execute-api.us-east-1.amazonaws.com/default/priceFeed2?ticker=TSLA&num_days=1";
+
+
             try{
-                ResponseEntity<StockData> response
-                        = restTemplate.getForEntity(getTickerDataURL, StockData.class);
+                for(Order order: allOrders) {
+                    String ticker = order.getTicker();
+                    String getTickerDataURL
+                            = "https://3p7zu95yg3.execute-api.us-east-1.amazonaws.com/default/priceFeed2?ticker=" + ticker + "&num_days=1";
+                    ResponseEntity<StockData> response
+                            = restTemplate.getForEntity(getTickerDataURL, StockData.class);
 
-                StockData myObj = response.getBody();
-                assert myObj != null;
-                Double lastClosePrice = myObj.getPrice_data()[0].getValue();
+                    StockData myObj = response.getBody();
+                    assert myObj != null;
+                    Double lastClosePrice = myObj.getPrice_data()[0].getValue();
 
-                if(order.getOrder_type().equals("buy")){
-                    if (order.getPrice() > lastClosePrice) {
-                        order.setStatus_code(2);
+                    if (order.getOrder_type().equals("buy")) {
+                        if (order.getPrice() > lastClosePrice) {
+                            order.setStatus_code(2);
+                        } else {
+                            order.setStatus_code(3);
+                        }
                     } else {
-                        order.setStatus_code(3);
+                        if (order.getPrice() < lastClosePrice) {
+                            order.setStatus_code(2);
+                        } else {
+                            order.setStatus_code(3);
+                        }
                     }
-                }else{
-                    if(order.getPrice() < lastClosePrice){
-                        order.setStatus_code(2);
-                    } else {
-                        order.setStatus_code(3);
-                    }
+                    dao.save(order);
                 }
-                dao.save(order);
 
             }catch(Exception e){
                 System.out.println(e);
             }
-
-
-        }
 
 
 
