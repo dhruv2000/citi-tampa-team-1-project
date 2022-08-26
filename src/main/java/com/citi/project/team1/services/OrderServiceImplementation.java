@@ -114,10 +114,13 @@ public class OrderServiceImplementation implements OrderService {
             try{
                 for(Order order: allOrders) {
                     String ticker = order.getTicker();
+                    System.out.println("ticker");
+
                     String getTickerDataURL
                             = "https://3p7zu95yg3.execute-api.us-east-1.amazonaws.com/default/priceFeed2?ticker=" + ticker + "&num_days=1";
                     ResponseEntity<StockData> response
                             = restTemplate.getForEntity(getTickerDataURL, StockData.class);
+                    System.out.println("Made it here 2");
 
                     StockData myObj = response.getBody();
                     assert myObj != null;
@@ -140,6 +143,7 @@ public class OrderServiceImplementation implements OrderService {
                 }
 
             }catch(Exception e){
+                System.out.println("The is the error");
                 System.out.println(e);
             }
 
