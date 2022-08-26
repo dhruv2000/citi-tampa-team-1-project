@@ -111,9 +111,6 @@ public class OrderServiceImplementation implements OrderService {
 
         List<Order> allOrders = dao.findAll();
 
-
-
-
             try{
                 for(Order order: allOrders) {
                     String ticker = order.getTicker();

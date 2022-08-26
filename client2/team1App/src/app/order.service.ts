@@ -22,8 +22,8 @@ export class OrderService {
 
 jsonBody: JSON = <JSON>this.objectBody;
 
-private baseUrl: string = 'http://localhost:8080/api/orders/';
-// private baseUrl: string = 'http://tampa-team-project-1-tampa-team-project-1.openshift21.conygre.com/api/orders';
+// private baseUrl: string = 'http://localhost:8080/api/orders/';
+private baseUrl: string = 'http://tampa-team-project-1-tampa-team-project-1.openshift21.conygre.com/api/orders';
 
   constructor(private http: HttpClient) { }
 
