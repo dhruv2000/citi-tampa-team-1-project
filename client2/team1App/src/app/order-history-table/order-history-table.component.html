@@ -12,6 +12,7 @@
           <th>Number of Shares</th>
           <th>Order Type</th>
           <th>Time Submitted</th>
+          <th>Order Status</th>
  
        </tr>
     </thead>
@@ -19,11 +20,12 @@
          <tr *ngFor="let order of orders | async">
              <td>{{order.id}}</td>
              <td>{{order.ticker}}</td>
-             <td>{{order.asset}}</td>
+             <td>{{order.asset == "stock" ? "Stock" : "Option"}}</td>
              <td>${{order.price}}</td>
              <td>{{order.num_shares}}</td>
-             <td>{{order.order_type}}</td>
+             <td>{{order.order_type == "buy" ? "Buy" : "Sell"}}</td>
              <td>{{order.time_of_day}}</td>
+             <td>{{order.status_code == 2 ? 'Processed' : "Failed"}}</td>
          </tr>
      </tbody>
      
