@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../order';
 import { OrderService } from '../order.service';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-add-order',
   templateUrl: './add-order.component.html',
@@ -52,7 +52,7 @@ export class AddOrderComponent implements OnInit {
   }
   
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     console.log(this.checkoutForm.value);
     let form = this.checkoutForm.value;
     const tempAddOrder = new Order(
@@ -65,7 +65,8 @@ export class AddOrderComponent implements OnInit {
       this.getDate(),
       form.asset
       );
-    this.orderService.addOrder(tempAddOrder);
+    await this.orderService.addOrder(tempAddOrder);
+    this.router.navigateByUrl('/viewhistory');
     // this.router.navigate(['/viewhistory']);
   }
 
