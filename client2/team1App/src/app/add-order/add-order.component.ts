@@ -67,6 +67,7 @@ export class AddOrderComponent implements OnInit {
       );
     await this.orderService.addOrder(tempAddOrder);
     this.router.navigateByUrl('/viewhistory');
+    this.orderService.orderFullfillment()
     // this.router.navigate(['/viewhistory']);
   }
 

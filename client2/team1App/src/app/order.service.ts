@@ -46,6 +46,10 @@ getOrderById(id: number): Observable<Order> {
     return this.http.get(`${this.baseUrl}/${id}`) as Observable<Order>;
 }
 
+orderFullfillment(): Observable<Order> {
+  return this.http.get(`${this.baseUrl}/updateOrderStatuses`) as Observable<Order>;
+}
+
 addOrder(order:Order): void {
   console.log(order);
   this.http.post<Order>(this.baseUrl, order).subscribe((result) => {

@@ -14,19 +14,21 @@
              <th>Number of Shares</th>
              <th>Order Type</th>
              <th>Time Submitted</th>
+             <th>Status Code</th>
              <th>Delete Order</th>
 
           </tr>
        </thead>
        <tbody>
             <tr *ngFor="let order of orders | async">
-                <td>{{order.id}}</td>
-                <td>{{order.ticker}}</td>
-                <td>{{order.asset}}</td>
-                <td>${{order.price}}</td>
-                <td>{{order.num_shares}}</td>
-                <td>{{order.order_type}}</td>
-                <td>{{order.time_of_day}}</td>
+               <td>{{order.id}}</td>
+               <td>{{order.ticker}}</td>
+               <td>{{order.asset == "stock" ? "Stock" : "Option"}}</td>
+               <td>${{order.price}}</td>
+               <td>{{order.num_shares}}</td>
+               <td>{{order.order_type == "buy" ? "Buy" : "Sell"}}</td>
+               <td>{{order.time_of_day}}</td>
+               <td>{{order.status_code}}</td>
                 <td><input type="button" value="Remove" (click)="remove(order.id)"></td> 
                 
             </tr>
