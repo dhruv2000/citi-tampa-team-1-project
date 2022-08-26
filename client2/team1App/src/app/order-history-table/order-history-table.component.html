@@ -1,8 +1,32 @@
-<p>order-history-table works!</p>
-<div class="order-item-container">
-    <div *ngFor="let order of orders | async">
-        <div>Ticker: {{ order.ticker }}</div>
-    </div>
+<div class="processedOrders">
+    <h2>All Exisiting Orders</h2>
 </div>
 
+<table id="myTable" class="styled-table">
+    <thead>
+       <tr>
+          <th>Id</th>
+          <th>Ticker</th>
+          <th>Asset</th>
+          <th>Price</th>
+          <th>Number of Shares</th>
+          <th>Order Type</th>
+          <th>Time Submitted</th>
+ 
+       </tr>
+    </thead>
+    <tbody>
+         <tr *ngFor="let order of orders | async">
+             <td>{{order.id}}</td>
+             <td>{{order.ticker}}</td>
+             <td>{{order.asset}}</td>
+             <td>${{order.price}}</td>
+             <td>{{order.num_shares}}</td>
+             <td>{{order.order_type}}</td>
+             <td>{{order.time_of_day}}</td>
+         </tr>
+     </tbody>
+     
+ 
+ </table> 
 

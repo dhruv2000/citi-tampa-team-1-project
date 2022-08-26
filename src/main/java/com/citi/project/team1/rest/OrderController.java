@@ -48,8 +48,8 @@ public class OrderController {
     }
 
     @GetMapping("/updateOrderStatuses")
-    public StockData updateOrderStatuses() {
-        return service.updateOrderStatuses();
+    public void updateOrderStatuses() {
+        service.updateOrderStatuses();
     }
 
     @PostMapping()

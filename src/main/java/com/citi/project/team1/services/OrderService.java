@@ -24,7 +24,7 @@ public interface OrderService {
 
         ResponseEntity<Order> updateOrder(Order order);
 
-        StockData updateOrderStatuses();
+        void updateOrderStatuses();
 
         List<Order> findByTicker(String ticker);
 

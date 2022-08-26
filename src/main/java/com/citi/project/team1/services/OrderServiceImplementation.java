@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -102,16 +103,51 @@ public class OrderServiceImplementation implements OrderService {
 
 //    TODO: Finish this function
     @Override
-    public StockData updateOrderStatuses() {
+    @Scheduled(fixedRate = 60000)
+    public void updateOrderStatuses() {
         System.out.println("Made it here");
         RestTemplate restTemplate = new RestTemplate();
-        String getTickerDataURL
-                = "https://3p7zu95yg3.execute-api.us-east-1.amazonaws.com/default/priceFeed2?ticker=TSLA&num_days=2";
-        StockData response
-                = restTemplate.getForObject(getTickerDataURL, StockData.class);
-        assert response != null;
 
-        Double price = response.getPrice_data()[0].getValue();
+
+        List<Order> allOrders = dao.findAll();
+
+
+        for(Order order: allOrders){
+            String ticker = order.getTicker();
+            String getTickerDataURL
+                    = "https://3p7zu95yg3.execute-api.us-east-1.amazonaws.com/default/priceFeed2?ticker=TSLA&num_days=1";
+            try{
+                ResponseEntity<StockData> response
+                        = restTemplate.getForEntity(getTickerDataURL, StockData.class);
+
+                StockData myObj = response.getBody();
+                assert myObj != null;
+                Double lastClosePrice = myObj.getPrice_data()[0].getValue();
+
+                if(order.getOrder_type().equals("buy")){
+                    if (order.getPrice() > lastClosePrice) {
+                        order.setStatus_code(2);
+                    } else {
+                        order.setStatus_code(3);
+                    }
+                }else{
+                    if(order.getPrice() < lastClosePrice){
+                        order.setStatus_code(2);
+                    } else {
+                        order.setStatus_code(3);
+                    }
+                }
+                dao.save(order);
+
+            }catch(Exception e){
+                System.out.println(e);
+            }
+
+
+        }
+
+
+
 
         // Grab the data from the database, and go through it--- if data is from current day, THEN make status changes
         //Also think about what gets added for status code as a default
@@ -124,7 +160,7 @@ public class OrderServiceImplementation implements OrderService {
 //        }
 //        assert response.getStatusCode() == HttpStatus.OK;
 //        return response.getBody();
-    return response;
+    return;
     }
 
     @Override
